@@ -37,6 +37,11 @@ body {
     color: black;
 }
 
+.active-tab {
+    background-color: #1abc9c9e;
+    color: black;
+}
+
 /* Fake image, just for this example */
 .fakeimg {
     background-color: #aaa;

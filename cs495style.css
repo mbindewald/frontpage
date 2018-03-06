@@ -38,8 +38,8 @@ body {
 }
 
 .active-tab {
-    background-color: #1abc9c9e;
-    color: black;
+    background-color: #ddd;
+    color: black !important;
 }
 
 /* Fake image, just for this example */

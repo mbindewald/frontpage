@@ -43,10 +43,6 @@ body {
     color: black;
 }
 
-.nabbar a:active {
-  background-color: #ddd;
-  color: black;
-}
 /* Column container */
 .row {
     display: flex;
@@ -55,9 +51,16 @@ body {
 
 /* Create two unequal columns that sits next to each other */
 /* Sidebar/left column */
-.column {
-    flex: 50%;
+.side {
+    flex: 30%;
     background-color: #f1f1f1;
+    padding: 20px;
+}
+
+/* Main column */
+.main {
+    flex: 70%;
+    background-color: white;
     padding: 20px;
 }
 
@@ -95,7 +98,7 @@ body {
   <a href="cs495Project.html">Home</a>
   <a href="#">Project</a>
   <a href="documentation.html">Documentation</a>
-  <a href="#aboutus.html">Team</a>
+  <a href="aboutus.html">Team</a>
   <a href="#">Future</a>
   <a href="#">Feedback</a>
 
@@ -103,25 +106,11 @@ body {
 
 <!-- The flexible grid (content) -->
 <div class="row">
-  <div class="column">
-      <h2>Bio: Justin Lukas</h2>
-      <h3>Computer Science</h3>
-      <img src="Justin_Lukas.jpg" style="height:200px;">
-      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-      <h2>Bio: Elliott Miller</h2>
-      <h3>Computer Science</h3>
-      <img src="Elliott_Miller.jpg" style="height:200px;">
-      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+  <div class="side">
+      <h2>Coming soon: other documentation</h2>
   </div>
-  <div class="column">
-      <h2>Bio: Reid Kolaczek</h2>
-      <h3>Computer Science</h3>
-      <img src="Justin_Lukas.jpg" style="height:200px;">
-      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-      <h2>Bio: Matthew Bindewald</h2>
-      <h3>Computer Science</h3>
-      <img src="Justin_Lukas.jpg" style="height:200px;">
-      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+  <div class="main">
+      <iframe src="requirements.pdf" style="width:100%; height:700px;" frameborder="0"></iframe>
   </div>
 </div>
 

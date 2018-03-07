@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="cs495style.css">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+    font-family: Arial;
+    margin: 0;
+}
+
+/* Column container */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.column {
+    flex: 50%;
+    background-color: #f1f1f1;
+    padding: 20px;
+    align-items: center;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media (max-width: 700px) {
+    .row, .navbar {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <h1>Capstone 495 Project: FrontPage</h1>
+</div>
+
+<!-- Navigation Bar -->
+<div class="navbar">
+  <a href="index.html">Home</a>
+  <a href="project.html">Project</a>
+  <a href="documentation.html">Documentation</a>
+  <a href="aboutus.html"class="active-tab">Team</a>
+  <a href="future.html">Future</a>
+  <a href="feedback.html">Feedback</a>
+</div>
+
+<!-- The flexible grid (content) -->
+<div class="row">
+  <div class="column">
+      <h2>Bio: Justin Lukas</h2>
+      <h3>Computer Science</h3>
+      <img src="Justin_Lukas.jpg" style="height:200px;">
+      <p>I am currently a senior at The University of Alabama from St. Louis, MO. Come May, I will also be graduating with a minor in mathematics and will be going on to pursue my MBA here at the Capstone through the STEM Path to MBA. Upon graduation, I hope to pursue a career working in innovation labs conducting usability research and analytics.</p>
+      <h2>Bio: Elliott Miller</h2>
+      <h3>Computer Science</h3>
+      <img src="Elliott_Miller.jpg" style="height:200px;">
+      <p>I am a senior CS student from Bentonville, AR. I am minoring in mathematics and psychology. I am in the STEM program and will be finishing up my MBA next year. After I graduate, I hope to work in the human-computer interaction field.</p>
+  </div>
+  <div class="column">
+      <h2>Bio: Reid Kolaczek</h2>
+      <h3>Computer Science</h3>
+      <img src="Reid_Kolaczek.jpg" style="height:200px;">
+      <p>
+          My name is Reid Kolaczek, and I am from Vestavia Hills, Alabama.  Last summer I was
+          a software development engineer intern at Amazon, which is where I will be returning
+          to after graduation.
+      </p>
+      <h2>Bio: Matthew Bindewald</h2>
+      <h3>Computer Science</h3>
+      <img src="matthew_bindewald.jpg" style="height:200px;">
+      <p>My name is Matthew Bindewald. I'm a Computer Science student at The University of Alabama, originally from Napa California. I interned as a Software Development Engineer at Amazon last summer and will be moving to Seattle after graduation to continue working with them.</p>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <h2>Footer</h2>
+</div>
+
+</body>
+</html>

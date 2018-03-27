@@ -2,6 +2,12 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="frontpagestyle.css">
+  <script>
+    var url = 'https://newsapi.org/v2/top-headlines?' + 'country=us&' + 'apiKey=386530c989c5478888d26532466fdf30';
+    var req = new Request(url);
+    fetch(req).then(function(response) { console.log(response.json());})
+    document.getElementById("demo").innerHTML = x;
+  </script>
 </head>
 <body>
 
@@ -21,6 +27,7 @@
   </div>
   <div class="column">
     <iframe width="500" height="315" src="https://www.youtube.com/embed/MuPL-PSMX0Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <id="demo"></p>
   </div>
 </div>
 

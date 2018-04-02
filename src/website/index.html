@@ -64,23 +64,42 @@
         </b-form-group>
 
         -->
-        <ul id="trendList">
-            <li v-for="(trend, index) in trends">
-              <div>
-                {{trend.trendName}}
-              </div>
-              <div>
-                  <span v-html="trend.TweetEmbedLink"></span>
-              </div>
-              <div>
-                <a href={{trend.googleNewsEmbedLink}}>Google News Article</a>
-              </div>
-              <div>
-                {{trend.youtubeEmbedLink}}
-              </div>
-            </li>
-        </ul>
-      </b-container>
+
+        <b-container class="bv-example-row">
+            <b-row>
+                <b-col>
+                  <ul id="trendList">
+                    <li v-for="(trend, index) in trends.slice(0,2)">
+                      <div>
+                        {{trend.trendName}}
+                      </div>
+                      <div>
+                          <span v-html="trend.TweetEmbedLink"></span>
+                      </div>
+                    </li>
+                  </ul>
+                </b-col>
+                <b-col>
+                  <ul id="trendList">
+                    <li v-for="(trend, index) in trends">
+                      <div>
+                        <a href={{trend.googleNewsEmbedLink}}>Google News Article</a>
+                      </div>
+                      <div>
+                        {{trend.youtubeEmbedLink}}
+                      </div>
+                    </li>
+                  </ul>
+                </b-col>
+                <b-col>
+                  <ul id="trendList">
+                    <li v-for="(trend, index) in trends">
+                        {{ trend }}
+                    </li>
+                  </ul>
+                </b-col>
+            </b-row>
+        </b-container>
     </div>
 
     <!-- Start running your app -->
@@ -107,6 +126,8 @@
             ]
         }
       })
+      // https://forum.vuejs.org/t/list-rendering-links/2830
+      // https://vuejs.org/v2/api/#v-html
     </script>
 
   </body>

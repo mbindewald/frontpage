@@ -64,11 +64,32 @@
         </b-form-group>
 
         -->
-        <ul id="trendList">
-            <li v-for="(trend, index) in trends">
-                {{ trend.trendName }}
-            </li>
-        </ul>
+
+        <b-container class="bv-example-row">
+            <b-row>
+                <b-col>
+                  <ul id="trendList">
+                    <li v-for="(trend, index) in trends">
+                        {{ trend }}
+                    </li>
+                  </ul>
+                </b-col>
+                <b-col>
+                  <ul id="trendList">
+                    <li v-for="(trend, index) in trends">
+                        {{ trend }}
+                    </li>
+                  </ul>
+                </b-col>
+                <b-col>
+                  <ul id="trendList">
+                    <li v-for="(trend, index) in trends">
+                        {{ trend }}
+                    </li>
+                  </ul>
+                </b-col>
+            </b-row>
+        </b-container>
       </b-container>
     </div>
 
@@ -81,11 +102,7 @@
             timestamp: '4/1/2018',
             trends: [
                 {
-                trendName: 'firstExample',
-                tweetCount: 100,
-                tweetEmbedLink: 'xxxx.com',
-                googleNewsEmbedLink: 'xxxx.com',
-                youtubeEmbedLink: 'xxxx.com'
+                <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">What were you doing on <a href="https://twitter.com/hashtag/MarchFourth?src=hash&amp;ref_src=twsrc%5Etfw">#MarchFourth</a>? The MDB was celebrating <a href="https://twitter.com/hashtag/NationalMarchingBandDay?src=hash&amp;ref_src=twsrc%5Etfw">#NationalMarchingBandDay</a>! <a href="https://twitter.com/hashtag/RollTide?src=hash&amp;ref_src=twsrc%5Etfw">#RollTide</a> to that million dollar sound! 🎶 <a href="https://t.co/R391FftJ2l">pic.twitter.com/R391FftJ2l</a></p>&mdash; The Univ. of Alabama (@UofAlabama) <a href="https://twitter.com/UofAlabama/status/971072961242378241?ref_src=twsrc%5Etfw">March 6, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                 },
                 {
                 trendName: 'secondExample',

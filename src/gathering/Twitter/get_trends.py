@@ -31,17 +31,21 @@ api = tweepy.API(auth)
 # twitter API docs: https://dev.twitter.com/rest/reference/get/trends/place
 #-----------------------------------------------------------------------
 results = twitter.trends.place(_id = 23424977)
+client = boto3.client("dynamodb")
 
-print "US Trends"
-# print results
-
+trends = []
 for location in results:
-    i = 0
     for trend in location["trends"]:
-        print " - %s" % trend["name"]
         popular_tweets = api.search(q=trend["name"], result_type='popular')
-        print popular_tweets
-        print "\n"
-        i+=1
+        trends.append(popular_tweets)
 
-print i
+def lambda_handler(event, context):
+    response = client.put_item(
+        TableName='TrendDB',
+        Item={
+            'filler': {
+                'S': 'trend'
+            },
+            'SS': trends
+        }
+    )

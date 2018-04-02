@@ -25,8 +25,11 @@
         <b-jumbotron header="FrontPage"
                      lead="The Internet's News In One Place"
         >
+        <!--
           <p>For more information visit our website</p>
           <b-btn variant="primary" href="https://bootstrap-vue.js.org/">More Info</b-btn>
+        -->
+
         </b-jumbotron>
 
         <!--
@@ -42,7 +45,18 @@
         -->
         <ul id="trendList">
             <li v-for="(trend, index) in trends">
-                {{ trends.trendName }} {{trends.tweetEmbedLink}}
+              <div>
+                {{trend.trendName}}
+              </div>
+              <div>
+                  <span v-html="trend.TweetEmbedLink"></span>
+              </div>
+              <div>
+                <a href={{trend.googleNewsEmbedLink}}>Google News Article</a>
+              </div>
+              <div>
+                {{trend.youtubeEmbedLink}}
+              </div>
             </li>
         </ul>
       </b-container>
@@ -58,14 +72,14 @@
                 {
                 trendName: 'TheMasters',
                 tweetCount: 50100,
-                tweetEmbedLink: '<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Players prepare on the final day before the gates open for <a href="https://twitter.com/hashtag/themasters?src=hash&amp;ref_src=twsrc%5Etfw">#themasters</a>.<a href="https://t.co/gSr1rSuKY7">https://t.co/gSr1rSuKY7</a></p>&mdash; Masters Tournament (@TheMasters) <a href="https://twitter.com/TheMasters/status/980625867767468033?ref_src=twsrc%5Etfw">April 2, 2018</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>',
+                tweetEmbedLink: '<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Players prepare on the final day before the gates open for <a href="https://twitter.com/hashtag/themasters?src=hash&amp;ref_src=twsrc%5Etfw">#themasters</a>.<a href="https://t.co/gSr1rSuKY7">https://t.co/gSr1rSuKY7</a></p>&mdash; Masters Tournament (@TheMasters) <a href="https://twitter.com/TheMasters/status/980625867767468033?ref_src=twsrc%5Etfw">April 2, 2018</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"><\/script>',
                 googleNewsEmbedLink: 'https://news.google.com/news/story/dfYDMDGAO8TkguMO_cX1MJo5EAKCM?ned=us&hl=en&gl=US',
                 youtubeEmbedLink: '<iframe width="560" height="315" src="https://www.youtube.com/embed/2hJejg-Rchs?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'
                 },
                 {
                 trendName: 'NCAA Basketball',
                 tweetCount: 100,
-                tweetEmbedLink: '<a class="twitter-timeline"  href="https://twitter.com/search?q=ncaa%20basketball" data-widget-id="980674435832311808">Tweets about ncaa basketball</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>',
+                tweetEmbedLink: '<a class="twitter-timeline"  href="https://twitter.com/search?q=ncaa%20basketball" data-widget-id="980674435832311808">Tweets about ncaa basketball</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?\'http\':\'https\';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");<\/script>',
                 googleNewsEmbedLink: 'https://news.google.com/news/search/section/q/ncaa%20basketball/ncaa%20basketball?hl=en&gl=US&ned=us',
                 youtubeEmbedLink: '<iframe width="560" height="315" src="https://www.youtube.com/embed/50b3VgbsVpo?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'
                 }

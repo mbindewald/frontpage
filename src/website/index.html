@@ -21,12 +21,36 @@
   <body>
     <!-- Our application root element -->
     <div id="app">
+      <b-navbar toggleable="md" type="dark" variant="info">
+        <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+        <b-collapse is-nav id="nav_collapse">
+          <!-- Right aligned nav items -->
+          <b-navbar-nav class="ml-auto">
+
+            <b-nav-form>
+              <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="Search"/>
+              <!-- <b-button class="my-2 my-sm-0" type="submit">Search</b-button> -->
+            </b-nav-form>
+
+            <b-nav-item-dropdown text="Lang" right>
+              <b-dropdown-item href="#">EN</b-dropdown-item>
+              <b-dropdown-item href="#">ES</b-dropdown-item>
+              <b-dropdown-item href="#">RU</b-dropdown-item>
+              <b-dropdown-item href="#">FA</b-dropdown-item>
+              <!-- can add more later for searching -->
+            </b-nav-item-dropdown>
+            <b-button href="#" class="my-2 my-sm-0" type="submit">Search</b-button>
+          </b-navbar-nav>
+
+        </b-collapse>
+      </b-navbar>
+
       <b-container>
         <b-jumbotron header="FrontPage"
                      lead="The Internet's News In One Place"
         >
           <p>For more information visit our website</p>
-          <b-btn variant="primary" href="https://bootstrap-vue.js.org/">More Info</b-btn>
+          <b-btn variant="primary" href="https://mbindewald.github.io/frontpage//">More Info</b-btn>
         </b-jumbotron>
 
         <!--
@@ -40,12 +64,42 @@
         </b-form-group>
 
         -->
-        <ul id="trendList">
-            <li v-for="(trend, index) in trends">
-                {{ trend.trendName }}
-            </li>
-        </ul>
-      </b-container>
+
+        <b-container class="bv-example-row">
+            <b-row>
+                <b-col>
+                  <ul id="trendList">
+                    <li v-for="(trend, index) in trends.slice(0,2)">
+                      <div>
+                        {{trend.trendName}}
+                      </div>
+                      <div>
+                          <span v-html="trend.TweetEmbedLink"></span>
+                      </div>
+                    </li>
+                  </ul>
+                </b-col>
+                <b-col>
+                  <ul id="trendList">
+                    <li v-for="(trend, index) in trends">
+                      <div>
+                        <a href={{trend.googleNewsEmbedLink}}>Google News Article</a>
+                      </div>
+                      <div>
+                        {{trend.youtubeEmbedLink}}
+                      </div>
+                    </li>
+                  </ul>
+                </b-col>
+                <b-col>
+                  <ul id="trendList">
+                    <li v-for="(trend, index) in trends">
+                        {{ trend }}
+                    </li>
+                  </ul>
+                </b-col>
+            </b-row>
+        </b-container>
     </div>
 
     <!-- Start running your app -->
@@ -58,20 +112,22 @@
                 {
                 trendName: 'TheMasters',
                 tweetCount: 50100,
-                tweetEmbedLink: '<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Players prepare on the final day before the gates open for <a href="https://twitter.com/hashtag/themasters?src=hash&amp;ref_src=twsrc%5Etfw">#themasters</a>.<a href="https://t.co/gSr1rSuKY7">https://t.co/gSr1rSuKY7</a></p>&mdash; Masters Tournament (@TheMasters) <a href="https://twitter.com/TheMasters/status/980625867767468033?ref_src=twsrc%5Etfw">April 2, 2018</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>',
+                tweetEmbedLink: '<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Players prepare on the final day before the gates open for <a href="https://twitter.com/hashtag/themasters?src=hash&amp;ref_src=twsrc%5Etfw">#themasters</a>.<a href="https://t.co/gSr1rSuKY7">https://t.co/gSr1rSuKY7</a></p>&mdash; Masters Tournament (@TheMasters) <a href="https://twitter.com/TheMasters/status/980625867767468033?ref_src=twsrc%5Etfw">April 2, 2018</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"><\/script>',
                 googleNewsEmbedLink: 'https://news.google.com/news/story/dfYDMDGAO8TkguMO_cX1MJo5EAKCM?ned=us&hl=en&gl=US',
                 youtubeEmbedLink: '<iframe width="560" height="315" src="https://www.youtube.com/embed/2hJejg-Rchs?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'
                 },
                 {
                 trendName: 'NCAA Basketball',
                 tweetCount: 100,
-                tweetEmbedLink: '<a class="twitter-timeline"  href="https://twitter.com/search?q=ncaa%20basketball" data-widget-id="980674435832311808">Tweets about ncaa basketball</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>',
+                tweetEmbedLink: '<a class="twitter-timeline"  href="https://twitter.com/search?q=ncaa%20basketball" data-widget-id="980674435832311808">Tweets about ncaa basketball</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?\'http\':\'https\';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");<\/script>',
                 googleNewsEmbedLink: 'https://news.google.com/news/search/section/q/ncaa%20basketball/ncaa%20basketball?hl=en&gl=US&ned=us',
                 youtubeEmbedLink: '<iframe width="560" height="315" src="https://www.youtube.com/embed/50b3VgbsVpo?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'
                 }
             ]
         }
       })
+      // https://forum.vuejs.org/t/list-rendering-links/2830
+      // https://vuejs.org/v2/api/#v-html
     </script>
 
   </body>

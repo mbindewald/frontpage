@@ -16,6 +16,7 @@
     <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
     <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+    <script import TweetEmbed from 'react-tweet-embed'> </script>
   </head>
 
   <body>
@@ -65,32 +66,30 @@
 
         -->
 
-        <b-container class="bv-example-row">
+        <b-container>
             <b-row>
                 <b-col>
-                  <ul id="trendList">
-                    <li v-for="(trend, index) in trends">
-                        {{ trend }}
-                    </li>
-                  </ul>
+                  <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">What were you doing on <a href="https://twitter.com/hashtag/MarchFourth?src=hash&amp;ref_src=twsrc%5Etfw">#MarchFourth</a>? The MDB was celebrating <a href="https://twitter.com/hashtag/NationalMarchingBandDay?src=hash&amp;ref_src=twsrc%5Etfw">#NationalMarchingBandDay</a>! <a href="https://twitter.com/hashtag/RollTide?src=hash&amp;ref_src=twsrc%5Etfw">#RollTide</a> to that million dollar sound! 🎶 <a href="https://t.co/R391FftJ2l">pic.twitter.com/R391FftJ2l</a></p>&mdash; The Univ. of Alabama (@UofAlabama) <a href="https://twitter.com/UofAlabama/status/971072961242378241?ref_src=twsrc%5Etfw">March 6, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </b-col>
                 <b-col>
-                  <ul id="trendList">
-                    <li v-for="(trend, index) in trends">
-                        {{ trend }}
-                    </li>
-                  </ul>
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/50b3VgbsVpo?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 </b-col>
                 <b-col>
-                  <ul id="trendList">
-                    <li v-for="(trend, index) in trends">
-                        {{ trend }}
-                    </li>
-                  </ul>
+                  
+                </b-col>
+            </b-row>
+            <b-row>
+                <b-col>
+
+                </b-col>
+                <b-col>
+
+                </b-col>
+                <b-col>
+
                 </b-col>
             </b-row>
         </b-container>
-      </b-container>
     </div>
 
     <!-- Start running your app -->
@@ -98,22 +97,27 @@
       window.app = new Vue({
         el: "#app",
         data: {
-            epoch: 123123123,
             timestamp: '4/1/2018',
             trends: [
                 {
-                <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">What were you doing on <a href="https://twitter.com/hashtag/MarchFourth?src=hash&amp;ref_src=twsrc%5Etfw">#MarchFourth</a>? The MDB was celebrating <a href="https://twitter.com/hashtag/NationalMarchingBandDay?src=hash&amp;ref_src=twsrc%5Etfw">#NationalMarchingBandDay</a>! <a href="https://twitter.com/hashtag/RollTide?src=hash&amp;ref_src=twsrc%5Etfw">#RollTide</a> to that million dollar sound! 🎶 <a href="https://t.co/R391FftJ2l">pic.twitter.com/R391FftJ2l</a></p>&mdash; The Univ. of Alabama (@UofAlabama) <a href="https://twitter.com/UofAlabama/status/971072961242378241?ref_src=twsrc%5Etfw">March 6, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                trendName: 'TheMasters',
+                tweetCount: 50100,
+                tweetEmbedLink: '<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Players prepare on the final day before the gates open for <a href="https://twitter.com/hashtag/themasters?src=hash&amp;ref_src=twsrc%5Etfw">#themasters</a>.<a href="https://t.co/gSr1rSuKY7">https://t.co/gSr1rSuKY7</a></p>&mdash; Masters Tournament (@TheMasters) <a href="https://twitter.com/TheMasters/status/980625867767468033?ref_src=twsrc%5Etfw">April 2, 2018</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"><\/script>',
+                googleNewsEmbedLink: 'https://news.google.com/news/story/dfYDMDGAO8TkguMO_cX1MJo5EAKCM?ned=us&hl=en&gl=US',
+                youtubeEmbedLink: '<iframe width="560" height="315" src="https://www.youtube.com/embed/2hJejg-Rchs?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'
                 },
                 {
-                trendName: 'secondExample',
+                trendName: 'NCAA Basketball',
                 tweetCount: 100,
-                tweetEmbedLink: 'xxxx.com',
-                googleNewsEmbedLink: 'xxxx.com',
-                youtubeEmbedLink: 'xxxx.com'
+                tweetEmbedLink: '<a class="twitter-timeline"  href="https://twitter.com/search?q=ncaa%20basketball" data-widget-id="980674435832311808">Tweets about ncaa basketball</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?\'http\':\'https\';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");<\/script>',
+                googleNewsEmbedLink: 'https://news.google.com/news/search/section/q/ncaa%20basketball/ncaa%20basketball?hl=en&gl=US&ned=us',
+                youtubeEmbedLink: '<iframe width="560" height="315" src="https://www.youtube.com/embed/50b3VgbsVpo?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'
                 }
             ]
         }
       })
+      // https://forum.vuejs.org/t/list-rendering-links/2830
+      // https://vuejs.org/v2/api/#v-html
     </script>
 
   </body>

@@ -1,5 +1,4 @@
 # API setup instructions
-
 This API should be ran on a server 
 
 # Dependencies

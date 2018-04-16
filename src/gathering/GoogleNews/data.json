@@ -1,1 +1,27 @@
-{"status": "ok", "articles": [{"description": "Pulitzer board on Monday called the album a work that captures the complexity of African-American life", "title": "Kendrick Lamar becomes 1st rapper to win Pulitzer Prize for music", "url": "https://www.cbsnews.com/news/kendrick-lamar-damn-wins-pulitzer-prize-2018-04-16/", "author": "CBS/AP", "publishedAt": "2018-04-16T19:54:00Z", "source": {"id": "cbs-news", "name": "CBS News"}, "urlToImage": "https://cbsnews2.cbsistatic.com/hub/i/r/2018/04/16/a0126b33-3686-464f-95e6-a8fce7d21d5e/thumbnail/1200x630/b9001cadb766dafee3b9bf53d90516ff/gettyimages-672576690.jpg"}], "totalResults": 20}
+{
+    "articles": [
+        {
+            "author": "CBS/AP",
+            "description": "Pulitzer board on Monday called the album a work that captures the complexity of African-American life",
+            "publishedAt": "2018-04-16T19:54:00Z",
+            "source": {
+                "id": "cbs-news",
+                "name": "CBS News"
+            },
+            "title": "Kendrick Lamar becomes 1st rapper to win Pulitzer Prize for music",
+            "url": "https://www.cbsnews.com/news/kendrick-lamar-damn-wins-pulitzer-prize-2018-04-16/",
+            "urlToImage": "https://cbsnews2.cbsistatic.com/hub/i/r/2018/04/16/a0126b33-3686-464f-95e6-a8fce7d21d5e/thumbnail/1200x630/b9001cadb766dafee3b9bf53d90516ff/gettyimages-672576690.jpg"
+        }
+    ],
+    "status": "ok",
+    "totalResults": 20
+}
+
+
+
+{u'status': u'ok', u'articles': [{u'description': u'Pulitzer board on Monday called the album a work that captures the comp
+lexity of African-American life', u'title': u'Kendrick Lamar becomes 1st rapper to win Pulitzer Prize for music', u'url': u
+'https://www.cbsnews.com/news/kendrick-lamar-damn-wins-pulitzer-prize-2018-04-16/', u'author': u'CBS/AP', u'publishedAt': u
+'2018-04-16T19:54:00Z', u'source': {u'id': u'cbs-news', u'name': u'CBS News'}, u'urlToImage': u'https://cbsnews2.cbsistatic
+.com/hub/i/r/2018/04/16/a0126b33-3686-464f-95e6-a8fce7d21d5e/thumbnail/1200x630/b9001cadb766dafee3b9bf53d90516ff/gettyimage
+s-672576690.jpg'}], u'totalResults': 20}

@@ -8,6 +8,7 @@
 #       to find the correct place to provide that key..
 
 import argparse
+import sys
 
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
@@ -22,7 +23,7 @@ YOUTUBE_API_SERVICE_NAME = 'youtube'
 YOUTUBE_API_VERSION = 'v3'
 
 
-def youtube_search():
+def youtube_search(key):
 
     youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION,
     developerKey=DEVELOPER_KEY)
@@ -37,12 +38,13 @@ def youtube_search():
         part='snippet, id',
         videoEmbeddable = 'true',
         order = 'viewCount',
-        q = 'surfing',
+        q = key,
         maxResults = 1
     ).execute()
 
-
     search_videos = []
+
+    global video_ids
 
     # Merge video ids
     for search_result in search_response.get('items', []):
@@ -53,7 +55,7 @@ def youtube_search():
     video_response = youtube.videos().list(
         id=video_ids,
         part='snippet, player'
-    ).execute()
+        ).execute()
 
     videos = []
 
@@ -63,9 +65,3 @@ def youtube_search():
                                       video_result['player']['embedHtml']))
 
     print 'Videos:\n', '\n'.join(videos), '\n'
-
-
-try:
-    youtube_search()
-except HttpError, e:
-    print 'An HTTP error %d occurred:\n%s' % (e.resp.status, e.content)

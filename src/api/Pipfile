@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 Flask = "*"
+"boto3" = "*"
+simplejson = "*"
 
 [dev-packages]
 

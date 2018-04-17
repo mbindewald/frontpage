@@ -61,7 +61,8 @@ def youtube_search(key):
 
     # Add each result to the list, and then display the list of matching videos.
     for video_result in video_response.get('items', []):
-        videos.append('%s, %s' % (video_result['snippet']['title'],
-                                      video_result['player']['embedHtml']))
+        videos.append('%s' % (video_result['player']['embedHtml']))
+        # videos.append('%s, %s' % (video_result['snippet']['title'],
+        #                               video_result['player']['embedHtml']))
 
-    print 'Videos:\n', '\n'.join(videos), '\n'
+    print 'YOUTUBE HTML\n', '\n'.join(videos), '\n'

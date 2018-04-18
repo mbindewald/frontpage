@@ -33,26 +33,18 @@ def lambda_handler(event, context):
     # twitter API docs: https://dev.twitter.com/rest/reference/get/trends/place
     #-----------------------------------------------------------------------
     results = twitter.trends.place(_id = 23424977)
-    client = boto3.client("dynamodb")
-
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table('TrendDB')
     trends = []
     for location in results:
         for trend in location["trends"]:
-            #popular_tweets = api.search(q=trend["name"], result_type='popular')
-            trends.append(trend["name"])
+            trends.append(trend)
 
-    response = client.put_item(
-        TableName='TrendDB',
+    response = table.put_item(
         Item={
-            'filler': {
-                'S': 'trend'
-            },
-            'time': {
-                'S': curTime
-            },
-            'trends': {
-                'SS': trends
-            }
+            'filler': 'trend',
+            'time': curTime,
+            'trends': trends
         }
     )
 

@@ -65,4 +65,6 @@ def youtube_search(key):
         # videos.append('%s, %s' % (video_result['snippet']['title'],
         #                               video_result['player']['embedHtml']))
 
-    print 'YOUTUBE HTML\n', '\n'.join(videos), '\n'
+    # print 'YOUTUBE HTML\n', '\n'.join(videos), '\n'
+    # obviously this is only going to return the most recent my_html, but since we are only pulling 1 video at a time it doesn't matter
+    return videos

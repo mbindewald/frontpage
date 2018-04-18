@@ -38,5 +38,8 @@ def twitter_search(key):
 
     for result in query["statuses"]:
         my_html = twitter.statuses.oembed(_id=result["id"])
-        print "TWEET HTML"
-        print "%s" % (my_html["html"])
+        # print "TWEET HTML"
+        # print "%s" % (my_html["html"])
+
+    # obviously this is only going to return the most recent my_html, but since we are only pulling 1 tweet at a time it doesn't matter
+    return my_html["html"]

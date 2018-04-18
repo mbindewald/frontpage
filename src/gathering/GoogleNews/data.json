@@ -1,1 +1,19 @@
-{"status": "ok", "articles": [{"description": "Interior Secretary Ryan Zinke could have avoided spending $12,375 on a charter flight following a speech last year to a hockey team owned by a former campaign contributor, according to an audit by the agency\u2019s internal watchdog.", "title": "Watchdog Raps Interior Secretary for $12375 Charter Flight", "url": "https://www.bloomberg.com/news/articles/2018-04-16/watchdog-raps-interior-secretary-for-12-375-charter-flight", "author": "Jennifer A Dlouhy", "publishedAt": "2018-04-16T22:56:08Z", "source": {"id": "bloomberg", "name": "Bloomberg"}, "urlToImage": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ibVakYX3Zgc4/v0/1200x800.jpg"}], "totalResults": 20}
+{
+    "articles": [
+        {
+            "author": "https://www.facebook.com/bbcnews",
+            "description": "It is unclear when chemical weapons experts will be able to start work after Tuesday's incident.",
+            "publishedAt": "2018-04-18T14:03:45Z",
+            "source": {
+
+                "id": null,
+                "name": "Bbc.com"
+            },
+            "title": "Syria 'chemical attack': Shooting delays OPCW visit to site",
+            "url": "http://www.bbc.com/news/world-middle-east-43792120",
+            "urlToImage": "https://ichef.bbci.co.uk/images/ic/1024x576/p064kdfs.jpg"
+        }
+    ],
+    "status": "ok",
+    "totalResults": 20
+}

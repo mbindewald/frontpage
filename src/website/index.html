@@ -18,6 +18,44 @@
     <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
     <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
     <script import TweetEmbed from 'react-tweet-embed'> </script>
+    <style>
+      .grid-container {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-gap: 10px;
+        background-color: #2196F3;
+        padding: 10px;
+      }
+      .grid-item {
+        background-color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        padding: 20px;
+        font-size: 10px;
+      }
+      .item1 {
+        grid-column: 1 ;
+        grid-row: 1;
+      }
+      .item2 {
+        grid-column: 2 / 4;
+        grid-row: 1 / 4;
+      }
+      .item3 {
+        grid-column: 1 / 2;
+        grid-row: 2 / 4;
+      }
+      .item4 {
+        grid-column: 1 / 4;
+        grid-row: 5;
+      }
+
+      .thumbnail img {
+          height: 100%;
+          width: auto;
+      }
+
+    </style>
 </head>
 
 <body>
@@ -62,8 +100,15 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-4">
+          <div class="grid-container">
+            <div class="grid-item item1">Syria 'chemical attack': Shooting delays OPCW visit to site</div>
+            <div class="grid-item item2"><img src="https://ichef.bbci.co.uk/images/ic/1024x576/p064kdfs.jpg" style="width:128px;height:128px;"></div>
+            <div class="grid-item item3">It is unclear when chemical weapons experts will be able to start work after Tuesday's incident.</div>
+          </div>
+          <a class="btn btn-default" href="http://www.bbc.com/news/world-middle-east-43792120" role="button">Full Story</a>
+
           <!-- <iframe src="https://news.google.com/news/?ned=us&gl=US&hl=en" frameborder="1" width="100%" height="100%" sandbox="" security="restricted"></iframe> -->
-          <iframe src="//rss.bloople.net/?url=https%3A%2F%2Fnews.google.coms%2Frss%2Fheadlines%3Fned%3Dus%26hl%3Den%26gl%3DUS&showtitle=false&type=html"></iframe>
+
           <!-- <iframe scrolling="no" style="border:none;" width="640" height="330" src="https://news.google.com/news/rss/headlines?ned=us&hl=en&gl=US">iFrame didn't work</iframe> -->
         </div>
         <div class="col-md-4">

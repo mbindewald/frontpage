@@ -1,0 +1,19 @@
+{
+    "articles": [
+        {
+            "author": "https://www.facebook.com/bbcnews",
+            "description": "It is unclear when chemical weapons experts will be able to start work after Tuesday's incident.",
+            "publishedAt": "2018-04-18T14:03:45Z",
+            "source": {
+
+                "id": null,
+                "name": "Bbc.com"
+            },
+            "title": "Syria 'chemical attack': Shooting delays OPCW visit to site",
+            "url": "http://www.bbc.com/news/world-middle-east-43792120",
+            "urlToImage": "https://ichef.bbci.co.uk/images/ic/1024x576/p064kdfs.jpg"
+        }
+    ],
+    "status": "ok",
+    "totalResults": 20
+}

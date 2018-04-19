@@ -4,7 +4,8 @@
 <title>Page Title</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="cs495style.css">
+<link rel="stylesheet" type="text/css" href="cs495style.css"> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 <style>
 * {
@@ -66,17 +67,28 @@ body {
 <!-- The flexible grid (content) -->
 <div class="row">
   <div class="side">
-    <h2>Coming soon:</h2>
-    <h3>Design</h3>
-    <h3>Presentations</h3>
-    <h3>Other documents</h3>
+    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+      <button type="button" class="btn btn-secondary">1</button>
+      <button type="button" class="btn btn-secondary">2</button>
+
+      <div class="btn-group" role="group">
+        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </button>
+        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+          <a class="dropdown-item" href="facebook.com">Dropdown link</a>
+          <a class="dropdown-item" href="twitter.com">Dropdown link</a>
+        </div>
+      </div>
+    </div>
+<a href="facebook.com" class="btn btn-info" role="button">Link Button</a>
+    <!-- <button  href="facebook.com" type="button" class="btn btn-primary btn-lg btn-block" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="document.getElementById('displayWindow').src='https://stackoverflow.com/questions/10524990/button-or-link-that-changes-page-in-iframe'">Documentation</button>
+    <a href="facebook.com" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Primary link</a>
+    <a class="btn btn-secondary" href="facebook.com" role="button">Link</a>
+    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="setURL('https://stackoverflow.com/questions/10524990/button-or-link-that-changes-page-in-iframe')">Presentation</button> -->
   </div>
   <div class="main">
-      <script>
-      function setURL(url){ document.getElementById('iframe').src = url;}
-      </script>
-      <iframe id="iframe" src="https://mbindewald.github.io/frontpage/Requirements.pdf"style="width:100%; height:700px;" frameborder="1"></iframe>
-      <input type="button" onclick="facebook.com" />
+      <iframe id="displayWindow" src="https://getbootstrap.com/docs/4.0/components/buttons/"style="width:98%; height:700px;" frameborder="1"></iframe>
       <!-- <iframe src="https://mbindewald.github.io/frontpage/Requirements.pdf" style="width:100%; height:700px;" frameborder="1"></iframe> -->
   </div>
 </div>
@@ -85,6 +97,11 @@ body {
 <div class="footer">
   <h2>Reinventing News</h2>
 </div>
+
+<script> function setURL(url){ document.getElementById('displayWindow').src = url;} </script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </body>
 </html>

@@ -1,8 +1,10 @@
 from flask import Flask, jsonify
 import boto3
 from botocore.exceptions import ClientError
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 # TODO: secure with auth0? So that only the right website can access api
 # https://auth0.com/blog/developing-restful-apis-with-python-and-flask/

@@ -18,45 +18,8 @@
     <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
     <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script import TweetEmbed from 'react-tweet-embed'> </script>
 
-    <style>
-      .grid-container {
-        width: 100%;
-        height: 100%;
-        display: grid;
-        grid-gap: 10px;
-        background-color: #2196F3;
-        padding: 10px;
-      }
-      .grid-item {
-        background-color: rgba(255, 255, 255, 0.8);
-        text-align: center;
-        padding: 20px;
-        font-size: 10px;
-      }
-      .item1 {
-        grid-column: 1 ;
-        grid-row: 1;
-      }
-      .item2 {
-        grid-column: 2 / 4;
-        grid-row: 1 / 4;
-      }
-      .item3 {
-        grid-column: 1 / 2;
-        grid-row: 2 / 4;
-      }
-      .item4 {
-        grid-column: 1 / 4;
-        grid-row: 5;
-      }
-
-      .thumbnail img {
-          height: 100%;
-          width: auto;
-      }
-
-    </style>
 </head>
 
 <body>
@@ -102,14 +65,19 @@
       <!-- <div class="row" v-for="(trend, index) in results.trend"> -->
       <!-- <div class="row" v-for="trend in 10"> {{results.trends}} -->
       <div class="row" v-for="trend in results.trends">
-        <!-- <h3> {{ trend.trend }} </h3> -->
         <div class="col-md-4">
-          {{ trend.trend }}
-        </div>
-        <div class="col-md-4"v-for="tweet in trend.twitter_post">
+          <div class="row">
+             <h4>{{trend.trend}}</h4>
+          </div>
+          <!-- <div class="row" v-for="google in trend.google_post">
+
+
+
+          </div> -->
+      </div>
+        <div class="col-md-4" v-for="tweet in trend.twitter_post">
           <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
           <p v-html="tweet.html"> </p>
-          <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Big vote tomorrow in the House. Tax cuts are getting close!</p>&mdash; Donald J. Trump (@realDonaldTrump) <a href="https://twitter.com/realDonaldTrump/status/930982399202217984?ref_src=twsrc%5Etfw">November 16, 2017</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
         <div class="col-md-4" v-html="trend.youtube_post"></div>
       </div>
@@ -121,9 +89,3 @@
 </body>
 
 </html>
-
-
-
-<!-- "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">Anyone who has ever read anything by <a href=\"https://twitter.com/JoyAnnReid?ref_src=twsrc%5Etfw\">@JoyAnnReid</a> knows that those were hacked blog posts.<br><br>They weren&#39;t even written in her voice let alone in keeping with her ideology or belief systems.<br><br>RT if you love Joy and look forward to <a href=\"https://twitter.com/hashtag/AMJoy?src=hash&amp;ref_src=twsrc%5Etfw\">#AMJoy</a> every weekend!<a href=\"https://twitter.com/hashtag/WednesdayWisdom?src=hash&amp;ref_src=twsrc%5Etfw\">#WednesdayWisdom</a> <a href=\"https://t.co/4SYU2RTtHf\">https://t.co/4SYU2RTtHf</a></p>&mdash; Holly Figueroa O&#39;Reilly 🌊 BWCS (@AynRandPaulRyan) <a href=\"https://twitter.com/AynRandPaulRyan/status/989122906004205568?ref_src=twsrc%5Etfw\">April 25, 2018</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n"
-
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Big vote tomorrow in the House. Tax cuts are getting close!</p>&mdash; Donald J. Trump (@realDonaldTrump) <a href="https://twitter.com/realDonaldTrump/status/930982399202217984?ref_src=twsrc%5Etfw">November 16, 2017</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->

@@ -1,7 +1,8 @@
-from flask import Flask, jsonify, request
+from flask import Flask, request, make_response, json
 import boto3
 from botocore.exceptions import ClientError
 from flask_cors import CORS
+import base64
 
 app = Flask(__name__)
 CORS(app)
@@ -28,9 +29,24 @@ def getTrends():
     else:
         items = response['Items'][0]
         del items['filler'] # remove unnecessary primary key
-        # print(items)
         return items
 
+# encode trend html elements in base64 so that we can inject them in Vue
+def encodeTrendHtml(items):
+    completeTrends = []
+
+    # guarantee that we're only displaying trends with all data
+    for trend in items['trends']:
+        if len(trend['twitter_post']) == 1 and len(trend['youtube_post']) == 1:
+            completeTrends.append(trend)
+
+    for trend in completeTrends:
+        trend['twitter_post'][0]['html'] = base64.b64encode(trend['twitter_post'][0]['html'].encode('utf-8'))
+        trend['youtube_post'][0] = base64.b64encode(trend['youtube_post'][0].encode('utf-8'))
+
+    items['trends'] = completeTrends
+
+    return items
 
 @app.route("/")
 def main():
@@ -43,7 +59,6 @@ def main():
 
 @app.route("/api")
 def api():
-    # TODO: memcache or similar for caching?
-
-    print(request.__dict__)
-    return jsonify(getTrends())
+    resp = make_response(json.dumps(encodeTrendHtml(getTrends())))
+    resp.headers['content-type'] = 'application/json'
+    return(resp)

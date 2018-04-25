@@ -33,12 +33,18 @@ def getTrends():
 
 # encode trend html elements in base64 so that we can inject them in Vue
 def encodeTrendHtml(items):
+    completeTrends = []
+
+    # guarantee that we're only displaying trends with all data
     for trend in items['trends']:
-        # no guarantee of post existing
-        if len(trend['twitter_post']) > 0:
-            trend['twitter_post'][0]['html'] = base64.b64encode(trend['twitter_post'][0]['html'].encode('utf-8'))
-        if len(trend['youtube_post']) > 0:
-            trend['youtube_post'][0] = base64.b64encode(trend['youtube_post'][0].encode('utf-8'))
+        if len(trend['twitter_post']) == 1 and len(trend['youtube_post']) == 1:
+            completeTrends.append(trend)
+
+    for trend in completeTrends:
+        trend['twitter_post'][0]['html'] = base64.b64encode(trend['twitter_post'][0]['html'].encode('utf-8'))
+        trend['youtube_post'][0] = base64.b64encode(trend['youtube_post'][0].encode('utf-8'))
+
+    items['trends'] = completeTrends
 
     return items
 

@@ -13,6 +13,7 @@ new Vue({
       // success callback
       // this.results = JSON.parse(JSON.parse(response.body))
       this.results = response.body
+      // this.results = atob(response.body)
       console.log("success")
     }, response => {
       // error callback

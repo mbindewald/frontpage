@@ -18,7 +18,7 @@
     <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
     <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    <!-- <script import TweetEmbed from 'react-tweet-embed'> </script> -->
+
     <style>
       .grid-container {
         width: 100%;
@@ -99,27 +99,21 @@
     </div>
 
     <div class="container-fluid" id="render">
+      <!-- <div class="row" v-for="(trend, index) in results.trend"> -->
+      <!-- <div class="row" v-for="trend in 10"> {{results.trends}} -->
       <div class="row" v-for="trend in results.trends">
+        <!-- <h3> {{ trend.trend }} </h3> -->
         <div class="col-md-4">
           {{ trend.trend }}
         </div>
-        <div class="col-md-4">
-            <blockquote class="twitter-tweet">
-              <p lang="en" dir="ltr">UP NEXT:
-                <a href="https://twitter.com/WWEAsuka?ref_src=twsrc%5Etfw">@WWEAsuka</a> makes her in-ring
-                <a href="https://twitter.com/hashtag/SDLive?src=hash&amp;ref_src=twsrc%5Etfw">#SDLive</a> debut by teaming with
-                <a href="https://twitter.com/BeckyLynchWWE?ref_src=twsrc%5Etfw">@BeckyLynchWWE</a> against
-                <a href="https://twitter.com/hashtag/TheIIconics?src=hash&amp;ref_src=twsrc%5Etfw">#TheIIconics</a>… but wait, is
-                <a href="https://twitter.com/WWEDanielBryan?ref_src=twsrc%5Etfw">@WWEDanielBryan</a> okay?!?
-                <a href="https://t.co/LiugXtdWMz">pic.twitter.com/LiugXtdWMz</a></p>&mdash; WWE (@WWE)
-                <a href="https://twitter.com/WWE/status/988935458020212741?ref_src=twsrc%5Etfw">April 25, 2018</a>
-            </blockquote>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <div class="col-md-4"v-for="tweet in trend.twitter_post">
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          <p v-html="tweet.html"> </p>
+          <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Big vote tomorrow in the House. Tax cuts are getting close!</p>&mdash; Donald J. Trump (@realDonaldTrump) <a href="https://twitter.com/realDonaldTrump/status/930982399202217984?ref_src=twsrc%5Etfw">November 16, 2017</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
         <div class="col-md-4" v-html="trend.youtube_post"></div>
       </div>
     </div>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.0"></script>
@@ -127,3 +121,9 @@
 </body>
 
 </html>
+
+
+
+<!-- "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">Anyone who has ever read anything by <a href=\"https://twitter.com/JoyAnnReid?ref_src=twsrc%5Etfw\">@JoyAnnReid</a> knows that those were hacked blog posts.<br><br>They weren&#39;t even written in her voice let alone in keeping with her ideology or belief systems.<br><br>RT if you love Joy and look forward to <a href=\"https://twitter.com/hashtag/AMJoy?src=hash&amp;ref_src=twsrc%5Etfw\">#AMJoy</a> every weekend!<a href=\"https://twitter.com/hashtag/WednesdayWisdom?src=hash&amp;ref_src=twsrc%5Etfw\">#WednesdayWisdom</a> <a href=\"https://t.co/4SYU2RTtHf\">https://t.co/4SYU2RTtHf</a></p>&mdash; Holly Figueroa O&#39;Reilly 🌊 BWCS (@AynRandPaulRyan) <a href=\"https://twitter.com/AynRandPaulRyan/status/989122906004205568?ref_src=twsrc%5Etfw\">April 25, 2018</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n"
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Big vote tomorrow in the House. Tax cuts are getting close!</p>&mdash; Donald J. Trump (@realDonaldTrump) <a href="https://twitter.com/realDonaldTrump/status/930982399202217984?ref_src=twsrc%5Etfw">November 16, 2017</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->

@@ -28,7 +28,7 @@ def getTrends():
     else:
         items = response['Items'][0]
         del items['filler'] # remove unnecessary primary key
-        print(items)
+        # print(items)
         return items
 
 

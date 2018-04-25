@@ -8,25 +8,14 @@
 
 from twitter import *
 import sys
-
+from config import consumer_secret, consumer_key, access_key, access_secret
 
 def twitter_search(key):
     #-----------------------------------------------------------------------
-    # load our API credentials
-    #-----------------------------------------------------------------------
-    config = {}
-    execfile("config.py", config)
-
-    #-----------------------------------------------------------------------
     # create twitter API object
     #-----------------------------------------------------------------------
-
     global twitter
-
-    twitter = Twitter(
-    		        auth = OAuth(config["access_key"], config["access_secret"], config["consumer_key"], config["consumer_secret"]))
-
-
+    twitter = Twitter(auth = OAuth(access_key, access_secret, consumer_key, consumer_secret))
 
     #-----------------------------------------------------------------------
     # perform a basic search
@@ -35,11 +24,11 @@ def twitter_search(key):
     #-----------------------------------------------------------------------
     query = twitter.search.tweets(q = key, result_type = "popular", count = "1")
 
-
+    my_html = []
     for result in query["statuses"]:
-        my_html = twitter.statuses.oembed(_id=result["id"])
+        my_html.append(twitter.statuses.oembed(_id=result["id"]))
         # print "TWEET HTML"
         # print "%s" % (my_html["html"])
 
     # obviously this is only going to return the most recent my_html, but since we are only pulling 1 tweet at a time it doesn't matter
-    return my_html["html"]
+    return my_html

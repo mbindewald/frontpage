@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 import boto3
 from botocore.exceptions import ClientError
 from flask_cors import CORS
@@ -28,7 +28,7 @@ def getTrends():
     else:
         items = response['Items'][0]
         del items['filler'] # remove unnecessary primary key
-        print(items)
+        # print(items)
         return items
 
 
@@ -45,4 +45,5 @@ def main():
 def api():
     # TODO: memcache or similar for caching?
 
+    print(request.__dict__)
     return jsonify(getTrends())

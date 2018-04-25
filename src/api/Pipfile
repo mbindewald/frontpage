@@ -8,6 +8,7 @@ flask = "*"
 "boto3" = "*"
 simplejson = "*"
 flask-cors = "*"
+gunicorn = "*"
 
 [dev-packages]
 

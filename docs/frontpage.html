@@ -1,35 +1,160 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <link rel="stylesheet" type="text/css" href="frontpagestyle.css">
-  <script>
-    var url = 'https://newsapi.org/v2/top-headlines?' + 'country=us&' + 'apiKey=386530c989c5478888d26532466fdf30';
-    var req = new Request(url);
-    fetch(req).then(function(response) { console.log(response.json());})
-    document.getElementById("demo").innerHTML = req;
-  </script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <title>FrontPage</title>
+
+    <!-- Required Stylesheets -->
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+    <!-- <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/> -->
+
+    <!-- Required scripts -->
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+    <script import TweetEmbed from 'react-tweet-embed'> </script>
+    <style>
+      .grid-container {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-gap: 10px;
+        background-color: #2196F3;
+        padding: 10px;
+      }
+      .grid-item {
+        background-color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        padding: 20px;
+        font-size: 10px;
+      }
+      .item1 {
+        grid-column: 1 ;
+        grid-row: 1;
+      }
+      .item2 {
+        grid-column: 2 / 4;
+        grid-row: 1 / 4;
+      }
+      .item3 {
+        grid-column: 1 / 2;
+        grid-row: 2 / 4;
+      }
+      .item4 {
+        grid-column: 1 / 4;
+        grid-row: 5;
+      }
+
+      .thumbnail img {
+          height: 100%;
+          width: auto;
+      }
+
+    </style>
 </head>
+
 <body>
+    <!-- Our application root element -->
+    <div id="app">
+        <b-navbar toggleable="md" type="dark" variant="info">
+            <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+            <b-collapse is-nav id="nav_collapse">
+                <!-- Right aligned nav items -->
+                <b-navbar-nav class="ml-auto">
 
-<!-- Header -->
-<div class="header">
-  <h1>FrontPage</h1>
-</div>
+                    <b-nav-form>
+                        <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="Search" />
+                        <!-- <b-button class="my-2 my-sm-0" type="submit">Search</b-button> -->
+                    </b-nav-form>
 
-<!-- Photo Grid -->
-<div class="row">
-  <div class="column">
-    <!-- could eventually script this to just pull from database -->
-    <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">What were you doing on <a href="https://twitter.com/hashtag/MarchFourth?src=hash&amp;ref_src=twsrc%5Etfw">#MarchFourth</a>? The MDB was celebrating <a href="https://twitter.com/hashtag/NationalMarchingBandDay?src=hash&amp;ref_src=twsrc%5Etfw">#NationalMarchingBandDay</a>! <a href="https://twitter.com/hashtag/RollTide?src=hash&amp;ref_src=twsrc%5Etfw">#RollTide</a> to that million dollar sound! 🎶 <a href="https://t.co/R391FftJ2l">pic.twitter.com/R391FftJ2l</a></p>&mdash; The Univ. of Alabama (@UofAlabama) <a href="https://twitter.com/UofAlabama/status/971072961242378241?ref_src=twsrc%5Etfw">March 6, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-  </div>
-  <div class="column">
-    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSportsIllustrated%2Fposts%2F10155307395161367&width=500" width="500" height="466" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-  </div>
-  <div class="column">
-    <iframe width="500" height="315" src="https://www.youtube.com/embed/MuPL-PSMX0Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    <id="demo"></p>
-  </div>
-</div>
+                    <b-nav-item-dropdown text="Lang" right>
+                        <b-dropdown-item href="#">EN</b-dropdown-item>
+                        <b-dropdown-item href="#">ES</b-dropdown-item>
+                        <b-dropdown-item href="#">RU</b-dropdown-item>
+                        <b-dropdown-item href="#">FA</b-dropdown-item>
+                        <!-- can add more later for searching -->
+                    </b-nav-item-dropdown>
+                    <b-button href="#" class="my-2 my-sm-0" type="submit">Search</b-button>
+                </b-navbar-nav>
+
+            </b-collapse>
+        </b-navbar>
+    </div>
+
+    <div class="container-fluid">
+        <div class="jumbotron">
+            <h1 class="display-4">FrontPage</h1>
+            <p class="lead">The Internet's News In One Place</p>
+            <p>For more information visit our website</p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="https://mbindewald.github.io/frontpage/" role="button">Learn more</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="grid-container">
+            <div class="grid-item item1">Syria 'chemical attack': Shooting delays OPCW visit to site</div>
+            <div class="grid-item item2"><img src="https://ichef.bbci.co.uk/images/ic/1024x576/p064kdfs.jpg" style="width:128px;height:128px;"></div>
+            <div class="grid-item item3">It is unclear when chemical weapons experts will be able to start work after Tuesday's incident.</div>
+          </div>
+          <a class="btn btn-default" href="http://www.bbc.com/news/world-middle-east-43792120" role="button">Full Story</a>
+
+          <!-- <iframe src="https://news.google.com/news/?ned=us&gl=US&hl=en" frameborder="1" width="100%" height="100%" sandbox="" security="restricted"></iframe> -->
+
+          <!-- <iframe scrolling="no" style="border:none;" width="640" height="330" src="https://news.google.com/news/rss/headlines?ned=us&hl=en&gl=US">iFrame didn't work</iframe> -->
+        </div>
+        <div class="col-md-4">
+          <iframe width=100% height=100% src="https://www.youtube.com/embed/2hJejg-Rchs?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        <div class="col-md-4">
+          <blockquote class="twitter-tweet" data-lang="en">
+              <p lang="en" dir="ltr">Players prepare on the final day before the gates open for
+                  <a href="https://twitter.com/hashtag/themasters?src=hash&amp;ref_src=twsrc%5Etfw">#themasters</a>.
+                  <a href="https://t.co/gSr1rSuKY7">https://t.co/gSr1rSuKY7</a>
+              </p>&mdash; Masters Tournament (@TheMasters)
+              <a href="https://twitter.com/TheMasters/status/980625867767468033?ref_src=twsrc%5Etfw">April 2, 2018</a>
+          </blockquote>
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+      </div>
+    </div>
+
+    <!-- Start running your app -->
+    <script>
+        window.app = new Vue({
+            el: "#app",
+            data: {
+                timestamp: '4/1/2018',
+                trends: [
+                    {
+                        trendName: 'TheMasters',
+                        tweetCount: 50100,
+                        tweetEmbedLink: '<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Players prepare on the final day before the gates open for <a href="https://twitter.com/hashtag/themasters?src=hash&amp;ref_src=twsrc%5Etfw">#themasters</a>.<a href="https://t.co/gSr1rSuKY7">https://t.co/gSr1rSuKY7</a></p>&mdash; Masters Tournament (@TheMasters) <a href="https://twitter.com/TheMasters/status/980625867767468033?ref_src=twsrc%5Etfw">April 2, 2018</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"><\/script>',
+                        googleNewsEmbedLink: 'https://news.google.com/news/story/dfYDMDGAO8TkguMO_cX1MJo5EAKCM?ned=us&hl=en&gl=US',
+                        youtubeEmbedLink: '<iframe width="560" height="315" src="https://www.youtube.com/embed/2hJejg-Rchs?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'
+                    },
+                    {
+                        trendName: 'NCAA Basketball',
+                        tweetCount: 100,
+                        tweetEmbedLink: '<a class="twitter-timeline"  href="https://twitter.com/search?q=ncaa%20basketball" data-widget-id="980674435832311808">Tweets about ncaa basketball</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?\'http\':\'https\';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");<\/script>',
+                        googleNewsEmbedLink: 'https://news.google.com/news/search/section/q/ncaa%20basketball/ncaa%20basketball?hl=en&gl=US&ned=us',
+                        youtubeEmbedLink: '<iframe width="560" height="315" src="https://www.youtube.com/embed/50b3VgbsVpo?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'
+                    }
+                ]
+            }
+        })
+      // https://forum.vuejs.org/t/list-rendering-links/2830
+      // https://vuejs.org/v2/api/#v-html
+    </script>
 
 </body>
+
 </html>

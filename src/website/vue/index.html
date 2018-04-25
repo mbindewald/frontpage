@@ -17,7 +17,8 @@
     <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
     <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
-    <script import TweetEmbed from 'react-tweet-embed'> </script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <!-- <script import TweetEmbed from 'react-tweet-embed'> </script> -->
     <style>
       .grid-container {
         width: 100%;
@@ -103,13 +104,22 @@
           {{ trend.trend }}
         </div>
         <div class="col-md-4">
-          {{ trend.trend }}
+            <blockquote class="twitter-tweet">
+              <p lang="en" dir="ltr">UP NEXT:
+                <a href="https://twitter.com/WWEAsuka?ref_src=twsrc%5Etfw">@WWEAsuka</a> makes her in-ring
+                <a href="https://twitter.com/hashtag/SDLive?src=hash&amp;ref_src=twsrc%5Etfw">#SDLive</a> debut by teaming with
+                <a href="https://twitter.com/BeckyLynchWWE?ref_src=twsrc%5Etfw">@BeckyLynchWWE</a> against
+                <a href="https://twitter.com/hashtag/TheIIconics?src=hash&amp;ref_src=twsrc%5Etfw">#TheIIconics</a>… but wait, is
+                <a href="https://twitter.com/WWEDanielBryan?ref_src=twsrc%5Etfw">@WWEDanielBryan</a> okay?!?
+                <a href="https://t.co/LiugXtdWMz">pic.twitter.com/LiugXtdWMz</a></p>&mdash; WWE (@WWE)
+                <a href="https://twitter.com/WWE/status/988935458020212741?ref_src=twsrc%5Etfw">April 25, 2018</a>
+            </blockquote>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
-        <div class="col-md-4">
-          {{ trend.trend }}
-        </div>
+        <div class="col-md-4" v-html="trend.youtube_post"></div>
       </div>
     </div>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.0"></script>

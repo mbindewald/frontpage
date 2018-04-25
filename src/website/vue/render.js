@@ -11,11 +11,12 @@ new Vue({
     // GET /someUrl
     this.$http.get('http://ec2-54-84-86-55.compute-1.amazonaws.com:5000/api').then(response => {
       // success callback
+      // this.results = JSON.parse(JSON.parse(response.body))
       this.results = response.body
       console.log("success")
     }, response => {
       // error callback
-      console.log(JSON.stringify(response))
+      console.log("error")
     });
   }
 })

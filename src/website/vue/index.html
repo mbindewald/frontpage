@@ -6,19 +6,17 @@
     <title>The greatest news app ever</title>
   </head>
   <body>
-    <div id="app">
-      {{ info }}
-
-      <!-- <h3 class="text-center">VueNews</h3>
-      <div class="columns medium-3" v-for="result in results">
+    <div class="container" id="app">
+      <h3 class="text-center">VueNews</h3>
+      <div class="columns medium-3" v-for="trend in results.trends">
         <div class="card">
           <div class="card-divider">
-            {{ info }}
+            {{ trend.trend }}
           </div>
-
         </div>
-      </div> -->
+      </div>
     </div>
+
 
     <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, request, make_response, json
 import boto3
 from botocore.exceptions import ClientError
 from flask_cors import CORS
@@ -43,7 +43,6 @@ def main():
 
 @app.route("/api")
 def api():
-    # TODO: memcache or similar for caching?
-
-    print(request.__dict__)
-    return jsonify(getTrends())
+    resp = make_response(json.dumps(getTrends()))
+    resp.headers['content-type'] = 'application/json'
+    return(resp)

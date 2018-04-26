@@ -4,7 +4,12 @@ from newsapi import NewsApiClient
 def get_top_article(data):
 
     top_article = {}
-    if data and data['articles']:
+    if not data['articles']:
+        top_article['title'] = 'none'
+        top_article['description'] = 'none'
+        top_article['url'] = 'none'
+        top_article['urlToImage'] = 'none'
+    else:
         top_article['title'] = data['articles'][0]['title']
         top_article['description'] = data['articles'][0]['description']
         top_article['url'] = data['articles'][0]['url']
@@ -14,14 +19,18 @@ def get_top_article(data):
 
 def googlenews_search(trend):
 
-    api = NewsApiClient(api_key='386530c989c5478888d26532466fdf30')
+    api = NewsApiClient(api_key='2adf8850e325465786cc2af0e8d6fb33')
     data = api.get_top_headlines(q=trend, country='us', language='en')
     top_article = get_top_article(data)
 
     return top_article
 
 def main():
-    googlenews_search('bitcoin')
+    data = googlenews_search('bitcoin')
+    if not data:
+        print("empty")
+    else:
+        print(data)
 
 if __name__ == "__main__":
     main()

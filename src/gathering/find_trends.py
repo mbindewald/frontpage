@@ -61,15 +61,15 @@ def find_all_trends(trends):
     for trend in trends:
         twitter_trend = twitter_search(trend[0])
         youtube_trend = youtube_search(trend[0])
-        #googlenews_trend = googlenews_search(trend[0])
+        googlenews_trend = googlenews_search(trend[0])
         trend_obj = {}
         trend_obj["trend"] = trend[0]
         trend_obj["tweet_volume"] = trend[1]
         trend_obj["youtube_post"] = youtube_trend
         trend_obj["twitter_post"] = twitter_trend
-        # if googlenews_trend is not "":
-        #     trend_obj["googlenews_post"] = googlenews_trend
+        trend_obj["googlenews_post"] = googlenews_trend
         trend_objs.append(trend_obj)
+
     print(trend_objs)
     return put_trend_in_dynamodb(trend_objs)
 

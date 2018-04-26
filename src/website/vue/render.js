@@ -6,6 +6,13 @@ function b64DecodeUnicode(str) {
   }).join(''))
 }
 
+function searchKeyword() {
+  console.log(document.getElementById("userInput").value)
+  var element = document.getElementById("searchButtonOut")
+  element = document.getElementById("userInput").value
+  // document.getElementById('displayWindow').v-if='trend.trend === 'document.getElementById('app').value''
+}
+
 new Vue({
   el: '#render',
   data () {
@@ -20,13 +27,13 @@ new Vue({
       this.results = response.body
       // this.results = atob(response.body)
       console.log("success")
-      
+
       this.results.trends.sort(function(a, b){
           if(a.tweet_volume > b.tweet_volume) return -1;
           if(a.tweet_volume < b.tweet_volume) return 1;
           return 0;
       })
-      
+
     }, response => {
       // error callback
       console.log("error")

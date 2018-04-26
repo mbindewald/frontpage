@@ -193,11 +193,10 @@
     <!-- Our application root element -->
     <div id="app" class="search-bar">
         <div class="search-input">
-            <form action ="index.php" method="get">
+            <form action='index.php'>
                 <div class="input-group">
-                    <input name="userInput" type="text" id="userInput" class="form-control search-box" placeholder="Search">
-                    <button class="btn btn-primary btn-sm search-button" type="submit">Submit</button>
-                    <!-- <a id"searchButtonOut" href="#" target="_self" class="btn btn-primary btn-sm search-button" role="button" type="submit">Go</a> -->
+                    <input type="text" name="userInput" id="userInput" class="form-control search-box" placeholder="Search">
+                    <a id"searchButtonOut" href="#" target="_self" class="btn btn-primary btn-sm search-button" role="button">Go</a>
                 </div>
             </form>
         </div>
@@ -216,7 +215,7 @@
             </p>
         </div>
 
-        <div class="card card-primary story-panel" id="displayWindow" v-for="(trend, index) in results.trends" v-if="index < 10">
+        <div class="card card-primary story-panel" id="displayWindow" v-for="(trend, index) in results.trends" v-if="trend.trend === <?php echo $_GET["userInput"]; ?>">
             <div class="card-header">
                 {{ trend.trend }}
             </div>

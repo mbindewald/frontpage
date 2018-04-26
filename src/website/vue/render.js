@@ -14,13 +14,13 @@ new Vue({
       this.results = response.body
       // this.results = atob(response.body)
       console.log("success")
-      /*
+
       this.results.trends.sort(function(a, b){
-          if(a.tweet_volume < b.tweet_volume) return -1;
-          if(a.tweet_volume > b.tweet_volume) return 1;
+          if(a.tweet_volume > b.tweet_volume) return -1;
+          if(a.tweet_volume < b.tweet_volume) return 1;
           return 0;
       })
-      */
+
     }, response => {
       // error callback
       console.log("error")

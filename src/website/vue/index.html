@@ -30,6 +30,7 @@
     .card {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         background-size: contain;
+        height: 100%;
     }
 
     .card-image {
@@ -197,19 +198,18 @@
                       </div>
                     </div> -->
                     <div class="col-md-4" v-for="tweet in trend.twitter_post">
-                      <div v-html="myFunctionTweet(tweet)"> </div>
+                      <div class="card" v-html="myFunctionTweet(tweet)"> </div>
                     </div>
                     <div class="col-md-4 video-container" v-html="myFunctionYoutube(trend.youtube_post)"></div>
 
                     <div class="col-md-4">
+                        <a :href="trend.googlenews_post.url">
                             <div class="card">
                                     <img class="card-image" :src="trend.googlenews_post.urlToImage">
                                     <h2 class="card-title">{{ trend.googlenews_post.title }}</h2>
                                   <p class="card-subtitle">{{ trend.googlenews_post.description }}</p>
-                                  <div class="card-action-bar">
-                                    <button class="card-button" onclick="window.open('http://www.bbc.com/news/world-middle-east-43792120'); return false">FULL STORY</button>
-                                  </div>
                                 </div>
+                                </a>
                     </div>
 
                   </div>

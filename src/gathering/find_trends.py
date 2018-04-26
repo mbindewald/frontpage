@@ -6,6 +6,7 @@ import boto3
 from boto3.dynamodb.conditions import Key, Attr
 from youtube_script import youtube_search
 from twitter_script import twitter_search
+from googlenews_script import googlenews_search
 
 
 dynamodb = boto3.resource("dynamodb")
@@ -28,7 +29,6 @@ def get_trends():
         )
         items.append(response['Items'])
 
-    print(response['Items'])
     return response['Items']
 
 def put_trend_in_dynamodb(trend_objs):
@@ -48,7 +48,10 @@ def parse_trends(trends_obj):
 
     trends_arr = []
     for trend in trends_obj['trends']:
-        trends_arr.append(trend['name'])
+        pair = []
+        pair.append(trend['name'])
+        pair.append(trend['tweet_volume'])
+        trends_arr.append(pair)
 
     return trends_arr
 
@@ -56,18 +59,18 @@ def find_all_trends(trends):
 
     trend_objs = []
     for trend in trends:
-        twitter_trend = twitter_search(trend)
-        youtube_trend = youtube_search(trend)
-        # googlenews_trend = googlenews_search(trend)
+        twitter_trend = twitter_search(trend[0])
+        youtube_trend = youtube_search(trend[0])
+        googlenews_trend = googlenews_search(trend[0])
         trend_obj = {}
-        trend_obj["trend"] = trend
+        trend_obj["trend"] = trend[0]
+        trend_obj["tweet_volume"] = trend[1]
         trend_obj["youtube_post"] = youtube_trend
         trend_obj["twitter_post"] = twitter_trend
-        # trend_obj["googlenews_post"] = googlenews_trend
-        # json_data = json.dumps(trend_obj)
-        # print "%s TREND DATA : \n %s" % (trend_obj["trend"], json_data)
+        trend_obj["googlenews_post"] = googlenews_trend
         trend_objs.append(trend_obj)
 
+    print(trend_objs)
     return put_trend_in_dynamodb(trend_objs)
 
 

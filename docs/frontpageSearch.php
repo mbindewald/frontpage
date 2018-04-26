@@ -190,17 +190,17 @@
 </head>
 
 <body>
-    <!-- Our application root element -->
-    <div id="app" class="search-bar">
-        <div class="search-input">
-            <form action="frontpageSearch.php" method="post">
-                <div class="input-group">
-                    <input type="text" class="form-control search-box" placeholder="Search">
-                    <a target="_self" class="btn btn-primary btn-sm search-button" role="button">Go</a>
-                </div>
-            </form>
-        </div>
-    </div>
+  <div id="app" class="search-bar">
+      <div class="search-input">
+          <form action ="index.php" method="get">
+              <div class="input-group">
+                  <input name="userInput" type="text" id="userInput" class="form-control search-box" placeholder="Search">
+                  <button class="btn btn-primary btn-sm search-button" type="submit">Submit</button>
+                  <!-- <a id"searchButtonOut" href="#" target="_self" class="btn btn-primary btn-sm search-button" role="button" type="submit">Go</a> -->
+              </div>
+          </form>
+      </div>
+  </div>
 
 
     <div class="container-fluid" id="render">

@@ -193,19 +193,21 @@
     <!-- Our application root element -->
     <div id="app" class="search-bar">
         <div class="search-input">
-            <form action="frontpageSearch.php" method="post">
+            <form action='index.php'>
                 <div class="input-group">
-                    <input type="text" class="form-control search-box" placeholder="Search">
-                    <a href="#" target="_self" class="btn btn-primary btn-sm search-button" role="button">Go</a>
+                    <input type="text" name="userInput" id="userInput" class="form-control search-box" placeholder="Search">
+                    <a id"searchButtonOut" href="#" target="_self" class="btn btn-primary btn-sm search-button" role="button">Go</a>
                 </div>
             </form>
         </div>
     </div>
 
+<!-- onclick="return searchKeyword(document.getElementById('app').value);" -->
+<!-- onclick="document.getElementById('displayWindow').v-if='trend.trend === 'document.getElementById('app').value''" -->
 
     <div class="container-fluid" id="render">
         <div class="jumbotron">
-            <h1 class="display-4">FrontPage</h1>
+            <h1 id="test" class="display-4">FrontPage</h1>
             <p class="lead">The Internet's News In One Place</p>
             <p>For more information visit our website</p>
             <p class="lead">
@@ -213,7 +215,7 @@
             </p>
         </div>
 
-        <div class="card card-primary story-panel" v-for="(trend, index) in results.trends" v-if="index < 10">
+        <div class="card card-primary story-panel" id="displayWindow" v-for="(trend, index) in results.trends" v-if="trend.trend === <?php echo $_GET["userInput"]; ?>">
             <div class="card-header">
                 {{ trend.trend }}
             </div>
@@ -254,6 +256,13 @@
     <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.0"></script>
+    <!-- <script>
+      function searchKeyword() {
+        console.log(document.getElementById("userInput").value)
+        document.getElementById("searchButtonOut").value = document.getElementById("userInput").value
+        document.getElementById('displayWindow').v-if='trend.trend === 'document.getElementById('userInput').value''
+      }
+    </script> -->
     <script src="render.js"></script>
 </body>
 

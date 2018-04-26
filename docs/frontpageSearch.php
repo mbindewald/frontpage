@@ -213,7 +213,7 @@
             </p>
         </div>
 
-        <div class="card card-primary story-panel" v-for="(trend, index) in results.trends" v-if="index < 10">
+        <div class="card card-primary story-panel" v-for="(trend, index) in results.trends" v-if="trend.trend === <?php echo $_GET["userInput"]; ?>">
             <div class="card-header">
                 {{ trend.trend }}
             </div>

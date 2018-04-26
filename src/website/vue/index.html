@@ -182,6 +182,8 @@
             </div>
             <div class="card-body">
                 <div class="row" >
+                    
+
                     <!-- <div class="col-md-4" v-for="google in trend.google_post">
                       <div class="grid-container">
                         <div class="card">
@@ -198,6 +200,18 @@
                       <div v-html="myFunctionTweet(tweet)"> </div>
                     </div>
                     <div class="col-md-4 video-container" v-html="myFunctionYoutube(trend.youtube_post)"></div>
+
+                    <div class="col-md-4">
+                            <div class="card">
+                                    <img class="card-image" :src="trend.googlenews_post.urlToImage">
+                                    <h2 class="card-title">{{ trend.googlenews_post.title }}</h2>
+                                  <p class="card-subtitle">{{ trend.googlenews_post.description }}</p>
+                                  <div class="card-action-bar">
+                                    <button class="card-button" onclick="window.open('http://www.bbc.com/news/world-middle-east-43792120'); return false">FULL STORY</button>
+                                  </div>
+                                </div>
+                    </div>
+
                   </div>
             </div>
         </div>

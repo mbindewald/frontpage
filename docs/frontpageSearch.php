@@ -196,7 +196,7 @@
             <form action="frontpageSearch.php" method="post">
                 <div class="input-group">
                     <input type="text" class="form-control search-box" placeholder="Search">
-                    <a href="#" target="_self" class="btn btn-primary btn-sm search-button" role="button">Go</a>
+                    <a target="_self" class="btn btn-primary btn-sm search-button" role="button">Go</a>
                 </div>
             </form>
         </div>

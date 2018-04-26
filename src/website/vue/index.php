@@ -193,10 +193,10 @@
     <!-- Our application root element -->
     <div id="app" class="search-bar">
         <div class="search-input">
-            <form action='index.php'>
+            <form action='index.php' method="get">
                 <div class="input-group">
                     <input type="text" name="userInput" id="userInput" class="form-control search-box" placeholder="Search">
-                    <a id"searchButtonOut" href="#" target="_self" class="btn btn-primary btn-sm search-button" role="button">Go</a>
+                    <a id"searchButtonOut" target="_self" class="btn btn-primary btn-sm search-button" role="button">Go</a>
                 </div>
             </form>
         </div>

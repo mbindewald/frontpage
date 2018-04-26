@@ -17,11 +17,11 @@
     <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
     <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script import TweetEmbed from 'react-tweet-embed'> </script>
     <style>
         body {
             font-family: "Helvetica";
+            font-size: 18px;
         }
 
         .jumbotron {
@@ -32,6 +32,16 @@
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             background-size: contain;
             height: 100%;
+        }
+
+        .tweet-card {
+            padding: 5px;
+        }
+
+        .tweet-image {
+            max-height: 100px;
+            max-width: 100px;
+            margin: auto;
         }
 
         .card-image {
@@ -60,7 +70,7 @@
         }
 
         .card-subtitle {
-            font-size: 14px;
+            font-size: 18px;
             padding: 4px;
             margin: 0;
             line-height: 1.6;
@@ -149,6 +159,7 @@
             width: 100%;
             height: 100%;
         }
+
         .search-bar {
             display: inline-block;
             margin-bottom: 8px;
@@ -167,13 +178,13 @@
         }
 
         .search-input {
-           width: 25%;
-           float: right;
-           vertical-align: center;
+            width: 25%;
+            float: right;
+            vertical-align: center;
         }
 
         .search-box {
-           padding: 0 0 0 4px;
+            padding: 0 0 0 4px;
         }
     </style>
 </head>
@@ -209,7 +220,10 @@
             <div class="card-body">
                 <div class="row" v-if="trend.googlenews_post.url !== 'none'">
                     <div class="col-md-4" v-for="tweet in trend.twitter_post">
-                        <div class="card" v-html="myFunctionTweet(tweet)"> </div>
+                        <div class="card tweet-card">
+                            <img class="card-img-top tweet-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/281152/Twitter_bird_logo_2012.svg">
+                            <span class="card-body" v-html="myFunctionTweet(tweet)"></span>
+                        </div>
                     </div>
                     <div class="col-md-4 video-container" v-html="myFunctionYoutube(trend.youtube_post)"></div>
 
@@ -225,7 +239,10 @@
                 </div>
                 <div class="row" v-if="trend.googlenews_post.url == 'none'">
                     <div class="col-md-6" v-for="tweet in trend.twitter_post">
-                        <div class="card" v-html="myFunctionTweet(tweet)"> </div>
+                        <div class="card tweet-card">
+                            <img class="card-img-top tweet-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/281152/Twitter_bird_logo_2012.svg">
+                            <span class="card-body" v-html="myFunctionTweet(tweet)"></span>
+                        </div>
                     </div>
                     <div class="col-md-6 video-container" v-html="myFunctionYoutube(trend.youtube_post)"></div>
                 </div>
@@ -234,12 +251,10 @@
 
 
     </div>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.0"></script>
     <script src="render.js"></script>
-    <script id="twitter-wjs" type="text/javascript" async defer src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 
 </html>

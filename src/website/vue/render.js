@@ -1,5 +1,11 @@
 // ./render.js
 
+function b64DecodeUnicode(str) {
+  return decodeURIComponent(Array.prototype.map.call(atob(str), function(c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+  }).join(''))
+}
+
 new Vue({
   el: '#render',
   data () {
@@ -28,12 +34,12 @@ new Vue({
   },
   methods:{
     myFunctionTweet: function (tweet) {
-        return atob(tweet.html)
+        return b64DecodeUnicode(tweet.html)
 		    // this.html = atob(this.html)
     },
 
     myFunctionYoutube: function (youtube) {
-        return atob(youtube)
+        return b64DecodeUnicode(youtube)
     }
 
   }

@@ -67,8 +67,11 @@ body {
 <!-- The flexible grid (content) -->
 <div class="row">
   <div class="side">
-    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="document.getElementById('displayWindow').src='ec2-54-84-86-55.compute-1.amazonaws.com'">Website</button>
+      <a class="btn btn-primary btn-lg btn-block" href="ec2-54-84-86-55.compute-1.amazonaws.com">Website</a>
     <button type="button" class="btn btn-primary btn-lg btn-block" onclick="document.getElementById('displayWindow').src='https://mbindewald.github.io/frontpage/presentation.pdf'">Implementation</button>
+  </div>
+  <div class="main">
+      <iframe id="displayWindow" src="https://mbindewald.github.io/frontpage/presentation.pdf" style="width:98%; height:700px;" frameborder="1"></iframe>
   </div>
 </div>
 

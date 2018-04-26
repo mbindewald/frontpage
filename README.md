@@ -2,6 +2,8 @@
 
 [Project Website Link](https://mbindewald.github.io/frontpage/)
 
+[FrontPage Website Link](http://ec2-54-84-86-55.compute-1.amazonaws.com/)
+
 docs/ contains the assets for the project website
 
 src/ contains all of the source code for the project

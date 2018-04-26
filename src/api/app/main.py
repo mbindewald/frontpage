@@ -41,8 +41,8 @@ def encodeTrendHtml(items):
             completeTrends.append(trend)
 
     for trend in completeTrends:
-        trend['twitter_post'][0]['html'] = base64.b64encode(trend['twitter_post'][0]['html'].encode('utf-8'))
-        trend['youtube_post'][0] = base64.b64encode(trend['youtube_post'][0].encode('utf-8'))
+        trend['twitter_post'][0]['html'] = base64.b64encode(bytes(trend['twitter_post'][0]['html'], "utf-8"))
+        trend['youtube_post'][0] = base64.b64encode(bytes(trend['youtube_post'][0], "utf-8"))
 
     items['trends'] = completeTrends
 

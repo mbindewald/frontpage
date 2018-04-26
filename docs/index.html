@@ -1,260 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
-<!-- tweet_volume -->
-
+<html>
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Page Title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="cs495style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>FrontPage</title>
+<style>
+* {
+    box-sizing: border-box;
+}
 
-    <!-- Required Stylesheets -->
-    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+/* Style the body */
+body {
+    font-family: Arial;
+    margin: 0;
+}
 
-    <!-- Required scripts -->
-    <script src="https://unpkg.com/vue"></script>
-    <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
-    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
-    <script import TweetEmbed from 'react-tweet-embed'> </script>
-    <style>
-        body {
-            font-family: "Helvetica";
-            font-size: 18px;
-        }
+/* Column container */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
 
-        .jumbotron {
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        }
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+    flex: 30%;
+    background-color: #f1f1f1;
+    padding: 20px;
+}
 
-        .card {
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            background-size: contain;
-            height: 100%;
-        }
+/* Main column */
+.main {
+    flex: 70%;
+    background-color: white;
+    padding: 20px;
+}
 
-        .tweet-card {
-            padding: 5px;
-        }
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media (max-width: 700px) {
+    .row, .navbar {
+        flex-direction: column;
+    }
+}
 
-        .tweet-image {
-            max-height: 100px;
-            max-width: 100px;
-            margin: auto;
-        }
-
-        .card-image {
-            background-size: contain;
-            background-position: center top;
-            background-repeat: no-repeat;
-            width: 100%;
-            height: auto;
-            height: auto;
-            overflow: hidden;
-            display: block;
-        }
-
-
-        .card-title {
-            font-size: 20px;
-            left: 0;
-            right: 0;
-            padding: 16px 4px 0 4px;
-            font-weight: 400;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            font-weight: bold;
-            overflow: hidden;
-            border-bottom: 1px solid;
-        }
-
-        .card-subtitle {
-            font-size: 18px;
-            padding: 4px;
-            margin: 0;
-            line-height: 1.6;
-            color: #000;
-            overflow: hidden;
-        }
-
-        .card-action-bar {
-            position: absolute;
-            bottom: 0;
-            top: auto;
-            left: 0;
-            right: 0;
-            padding: 0 8px;
-            boz-sizing: border-box;
-            height: 52px;
-        }
-
-        .card-button {
-            outline: none;
-            position: relative;
-            display: inline-block;
-            line-height: 1.6;
-            padding: 0 16px;
-            cursor: pointer;
-        }
-
-        .grid-container {
-            width: 100%;
-            height: 100%;
-            display: grid;
-            grid-gap: 10px;
-            padding: 10px;
-        }
-
-        .grid-item {
-            background-color: rgba(255, 255, 255, 0.8);
-            text-align: center;
-            padding: 20px;
-            font-size: 10px;
-        }
-
-        .item1 {
-            grid-column: 1;
-            grid-row: 1;
-        }
-
-        .item2 {
-            grid-column: 2 / 4;
-            grid-row: 1 / 4;
-        }
-
-        .item3 {
-            grid-column: 1 / 2;
-            grid-row: 2 / 4;
-        }
-
-        .item4 {
-            grid-column: 1 / 4;
-            grid-row: 5;
-        }
-
-        .thumbnail img {
-            height: 100%;
-            width: auto;
-        }
-
-        .story-panel {
-            margin-left: 0px;
-            margin-right: 0px;
-            margin-bottom: 30px;
-        }
-
-        .video-container {
-            position: relative;
-            padding-bottom: 27%;
-            padding-top: 35px;
-            height: 0;
-            overflow: hidden;
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .search-bar {
-            display: inline-block;
-            margin-bottom: 8px;
-            width: 100%;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            background-color: #e9ecef;
-            padding: 8px;
-        }
-
-        .search-button {
-            height: 100%;
-            text-align: center;
-            vertical-align: middle;
-            display: flex;
-            align-items: flex-end;
-        }
-
-        .search-input {
-            width: 25%;
-            float: right;
-            vertical-align: center;
-        }
-
-        .search-box {
-            padding: 0 0 0 4px;
-        }
-    </style>
+</style>
 </head>
-
 <body>
-    <!-- Our application root element -->
-    <div id="app" class="search-bar">
-        <div class="search-input">
-            <form>
-                <div class="input-group">
-                    <input type="text" class="form-control search-box" placeholder="Search">
-                    <a href="#" target="_self" class="btn btn-primary btn-sm search-button" role="button">Go</a>
-                </div>
-            </form>
-        </div>
+
+<!-- Header -->
+<div class="header">
+  <h1>Capstone 495 Project: FrontPage</h1>
+</div>
+
+<!-- Navigation Bar -->
+<div class="navbarStyle">
+  <a href="index.html" class="active-tab">Home</a>
+  <a href="project.html">Project</a>
+  <a href="documentation.html">Documentation</a>
+  <a href="aboutus.html">Team</a>
+  <a href="future.html">Future</a>
+  <a href="feedback.html">Feedback</a>
+</div>
+
+<!-- The flexible grid (content) -->
+<div class="row">
+    <div class="side">
+        <h2>Video Demonstration (coming soon)</h2>
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/MuPL-PSMX0Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <h3>Application Screenshots (coming soon)</h3>
+        <a href="http://www.journalism.org/2017/09/07/news-use-across-social-media-platforms-2017/pi_17-08-23_socialmediaupdate_0-05/"><img width=100% height="900px" src="http://assets.pewresearch.org/wp-content/uploads/sites/13/2017/09/05172654/PI_17.08.23_socialMediaUpdate_0-05.png" class="attachment-large size-large" alt="About one-in-four now get news from multiple social media sites" /></a>
+        <br />
+        <!-- <div class="fakeimg" style="height:200px;">Image</div>
+        <br /> -->
     </div>
+  <div class="main">
+      <h2>Project Description</h2>
+      <h4>The True Front Page for the 21st Century</h4>
+      <p>
+          FrontPage is a web application that provides a centralized location for users to access trending news.
+          The application also supports searching for specific topics across a wide variety of social media platforms
+          and news outlets and condenses the results based on popularity. As there is not currently one application that offers trending news from both
+          social media sites and new sources in such a simplified format, FrontPage aims to become a centralized platform for
+          users to access top news stories with ease, without having to visit and scroll through multiple websites and
+          applications to access the most popular posts.
+      </p>
+      <h2>Project Scope</h2>
+      <p>
+          Since sixty-seven percent of adults get their news from social media, and over one quarter of this demographic gets news from one site only, our applications aims to offer a unique experience that allows users to track top news stories from a centralized location (Pew Research Center). Our mission addresses “reinventing news” and the way that consumers track trending stories.
+FrontPage will pull data from both news networks and social media sites in order to provide the most integrated, content-rich experience.
 
+      </p>
+  </div>
+</div>
 
-    <div class="container-fluid" id="render">
-        <div class="jumbotron">
-            <h1 class="display-4">FrontPage</h1>
-            <p class="lead">The Internet's News In One Place</p>
-            <p>For more information visit our website</p>
-            <p class="lead">
-                <a class="btn btn-primary btn-lg" href="https://mbindewald.github.io/frontpage/" role="button">Learn more</a>
-            </p>
-        </div>
+<div class="footer">
+  <h2>Reinventing News</h2>
+</div>
 
-        <div class="card card-primary story-panel" v-for="(trend, index) in results.trends" v-if="index < 10">
-            <div class="card-header">
-                {{ trend.trend }}
-            </div>
-            <div class="card-body">
-                <div class="row" v-if="trend.googlenews_post.url !== 'none'">
-                    <div class="col-md-4" v-for="tweet in trend.twitter_post">
-                        <div class="card tweet-card">
-                            <img class="card-img-top tweet-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/281152/Twitter_bird_logo_2012.svg">
-                            <span class="card-body" v-html="myFunctionTweet(tweet)"></span>
-                        </div>
-                    </div>
-                    <div class="col-md-4 video-container" v-html="myFunctionYoutube(trend.youtube_post)"></div>
-
-                    <div class="col-md-4">
-                        <a :href="trend.googlenews_post.url">
-                            <div class="card">
-                                <img class="card-image" :src="trend.googlenews_post.urlToImage">
-                                <h2 class="card-title">{{ trend.googlenews_post.title }}</h2>
-                                <p class="card-subtitle">{{ trend.googlenews_post.description }}</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="row" v-if="trend.googlenews_post.url == 'none'">
-                    <div class="col-md-6" v-for="tweet in trend.twitter_post">
-                        <div class="card tweet-card">
-                            <img class="card-img-top tweet-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/281152/Twitter_bird_logo_2012.svg">
-                            <span class="card-body" v-html="myFunctionTweet(tweet)"></span>
-                        </div>
-                    </div>
-                    <div class="col-md-6 video-container" v-html="myFunctionYoutube(trend.youtube_post)"></div>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-    <script src="https://unpkg.com/vue"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.0"></script>
-    <script src="render.js"></script>
 </body>
-
 </html>

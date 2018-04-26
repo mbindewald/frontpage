@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- tweet_volume -->
 
 <head>
     <!-- Required meta tags -->
@@ -11,7 +12,6 @@
 
     <!-- Required Stylesheets -->
     <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
-    <!-- <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/> -->
 
     <!-- Required scripts -->
     <script src="https://unpkg.com/vue"></script>
@@ -19,74 +19,191 @@
     <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
     <script import TweetEmbed from 'react-tweet-embed'> </script>
     <style>
-      .grid-container {
-        width: 100%;
-        height: 100%;
-        display: grid;
-        grid-gap: 10px;
-        background-color: #2196F3;
-        padding: 10px;
-      }
-      .grid-item {
-        background-color: rgba(255, 255, 255, 0.8);
-        text-align: center;
-        padding: 20px;
-        font-size: 10px;
-      }
-      .item1 {
-        grid-column: 1 ;
-        grid-row: 1;
-      }
-      .item2 {
-        grid-column: 2 / 4;
-        grid-row: 1 / 4;
-      }
-      .item3 {
-        grid-column: 1 / 2;
-        grid-row: 2 / 4;
-      }
-      .item4 {
-        grid-column: 1 / 4;
-        grid-row: 5;
-      }
+        body {
+            font-family: "Helvetica";
+            font-size: 18px;
+        }
 
-      .thumbnail img {
-          height: 100%;
-          width: auto;
-      }
+        .jumbotron {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
 
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            background-size: contain;
+            height: 100%;
+        }
+
+        .tweet-card {
+            padding: 5px;
+        }
+
+        .tweet-image {
+            max-height: 100px;
+            max-width: 100px;
+            margin: auto;
+        }
+
+        .card-image {
+            background-size: contain;
+            background-position: center top;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: auto;
+            height: auto;
+            overflow: hidden;
+            display: block;
+        }
+
+
+        .card-title {
+            font-size: 20px;
+            left: 0;
+            right: 0;
+            padding: 16px 4px 0 4px;
+            font-weight: 400;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            font-weight: bold;
+            overflow: hidden;
+            border-bottom: 1px solid;
+        }
+
+        .card-subtitle {
+            font-size: 18px;
+            padding: 4px;
+            margin: 0;
+            line-height: 1.6;
+            color: #000;
+            overflow: hidden;
+        }
+
+        .card-action-bar {
+            position: absolute;
+            bottom: 0;
+            top: auto;
+            left: 0;
+            right: 0;
+            padding: 0 8px;
+            boz-sizing: border-box;
+            height: 52px;
+        }
+
+        .card-button {
+            outline: none;
+            position: relative;
+            display: inline-block;
+            line-height: 1.6;
+            padding: 0 16px;
+            cursor: pointer;
+        }
+
+        .grid-container {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-gap: 10px;
+            padding: 10px;
+        }
+
+        .grid-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 20px;
+            font-size: 10px;
+        }
+
+        .item1 {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .item2 {
+            grid-column: 2 / 4;
+            grid-row: 1 / 4;
+        }
+
+        .item3 {
+            grid-column: 1 / 2;
+            grid-row: 2 / 4;
+        }
+
+        .item4 {
+            grid-column: 1 / 4;
+            grid-row: 5;
+        }
+
+        .thumbnail img {
+            height: 100%;
+            width: auto;
+        }
+
+        .story-panel {
+            margin-left: 0px;
+            margin-right: 0px;
+            margin-bottom: 30px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 27%;
+            padding-top: 35px;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .search-bar {
+            display: inline-block;
+            margin-bottom: 8px;
+            width: 100%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            background-color: #e9ecef;
+            padding: 8px;
+        }
+
+        .search-button {
+            height: 100%;
+            text-align: center;
+            vertical-align: middle;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .search-input {
+            width: 25%;
+            float: right;
+            vertical-align: center;
+        }
+
+        .search-box {
+            padding: 0 0 0 4px;
+        }
     </style>
 </head>
 
 <body>
     <!-- Our application root element -->
-    <div id="app">
-        <b-navbar toggleable="md" type="dark" variant="info">
-            <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
-            <b-collapse is-nav id="nav_collapse">
-                <!-- Right aligned nav items -->
-                <b-navbar-nav class="ml-auto">
-
-                    <b-nav-form>
-                        <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="Search" />
-                        <!-- <b-button class="my-2 my-sm-0" type="submit">Search</b-button> -->
-                    </b-nav-form>
-
-                    <b-nav-item-dropdown text="Lang" right>
-                        <b-dropdown-item href="#">EN</b-dropdown-item>
-                        <b-dropdown-item href="#">ES</b-dropdown-item>
-                        <b-dropdown-item href="#">RU</b-dropdown-item>
-                        <b-dropdown-item href="#">FA</b-dropdown-item>
-                        <!-- can add more later for searching -->
-                    </b-nav-item-dropdown>
-                    <b-button href="#" class="my-2 my-sm-0" type="submit">Search</b-button>
-                </b-navbar-nav>
-
-            </b-collapse>
-        </b-navbar>
+    <div id="app" class="search-bar">
+        <div class="search-input">
+            <form>
+                <div class="input-group">
+                    <input type="text" class="form-control search-box" placeholder="Search">
+                    <a href="#" target="_self" class="btn btn-primary btn-sm search-button" role="button">Go</a>
+                </div>
+            </form>
+        </div>
     </div>
 
-    <div class="container-fluid">
+
+    <div class="container-fluid" id="render">
         <div class="jumbotron">
             <h1 class="display-4">FrontPage</h1>
             <p class="lead">The Internet's News In One Place</p>
@@ -95,66 +212,49 @@
                 <a class="btn btn-primary btn-lg" href="https://mbindewald.github.io/frontpage/" role="button">Learn more</a>
             </p>
         </div>
+
+        <div class="card card-primary story-panel" v-for="(trend, index) in results.trends" v-if="index < 10">
+            <div class="card-header">
+                {{ trend.trend }}
+            </div>
+            <div class="card-body">
+                <div class="row" v-if="trend.googlenews_post.url !== 'none'">
+                    <div class="col-md-4" v-for="tweet in trend.twitter_post">
+                        <div class="card tweet-card">
+                            <img class="card-img-top tweet-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/281152/Twitter_bird_logo_2012.svg">
+                            <span class="card-body" v-html="myFunctionTweet(tweet)"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 video-container" v-html="myFunctionYoutube(trend.youtube_post)"></div>
+
+                    <div class="col-md-4">
+                        <a :href="trend.googlenews_post.url">
+                            <div class="card">
+                                <img class="card-image" :src="trend.googlenews_post.urlToImage">
+                                <h2 class="card-title">{{ trend.googlenews_post.title }}</h2>
+                                <p class="card-subtitle">{{ trend.googlenews_post.description }}</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row" v-if="trend.googlenews_post.url == 'none'">
+                    <div class="col-md-6" v-for="tweet in trend.twitter_post">
+                        <div class="card tweet-card">
+                            <img class="card-img-top tweet-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/281152/Twitter_bird_logo_2012.svg">
+                            <span class="card-body" v-html="myFunctionTweet(tweet)"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 video-container" v-html="myFunctionYoutube(trend.youtube_post)"></div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
-
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-4">
-          <div class="grid-container">
-            <div class="grid-item item1">Syria 'chemical attack': Shooting delays OPCW visit to site</div>
-            <div class="grid-item item2"><img src="https://ichef.bbci.co.uk/images/ic/1024x576/p064kdfs.jpg" style="width:128px;height:128px;"></div>
-            <div class="grid-item item3">It is unclear when chemical weapons experts will be able to start work after Tuesday's incident.</div>
-          </div>
-          <a class="btn btn-default" href="http://www.bbc.com/news/world-middle-east-43792120" role="button">Full Story</a>
-
-          <!-- <iframe src="https://news.google.com/news/?ned=us&gl=US&hl=en" frameborder="1" width="100%" height="100%" sandbox="" security="restricted"></iframe> -->
-
-          <!-- <iframe scrolling="no" style="border:none;" width="640" height="330" src="https://news.google.com/news/rss/headlines?ned=us&hl=en&gl=US">iFrame didn't work</iframe> -->
-        </div>
-        <div class="col-md-4">
-          <iframe width=100% height=100% src="https://www.youtube.com/embed/2hJejg-Rchs?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-        <div class="col-md-4">
-          <blockquote class="twitter-tweet" data-lang="en">
-              <p lang="en" dir="ltr">Players prepare on the final day before the gates open for
-                  <a href="https://twitter.com/hashtag/themasters?src=hash&amp;ref_src=twsrc%5Etfw">#themasters</a>.
-                  <a href="https://t.co/gSr1rSuKY7">https://t.co/gSr1rSuKY7</a>
-              </p>&mdash; Masters Tournament (@TheMasters)
-              <a href="https://twitter.com/TheMasters/status/980625867767468033?ref_src=twsrc%5Etfw">April 2, 2018</a>
-          </blockquote>
-          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        </div>
-      </div>
-    </div>
-
-    <!-- Start running your app -->
-    <script>
-        window.app = new Vue({
-            el: "#app",
-            data: {
-                timestamp: '4/1/2018',
-                trends: [
-                    {
-                        trendName: 'TheMasters',
-                        tweetCount: 50100,
-                        tweetEmbedLink: '<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Players prepare on the final day before the gates open for <a href="https://twitter.com/hashtag/themasters?src=hash&amp;ref_src=twsrc%5Etfw">#themasters</a>.<a href="https://t.co/gSr1rSuKY7">https://t.co/gSr1rSuKY7</a></p>&mdash; Masters Tournament (@TheMasters) <a href="https://twitter.com/TheMasters/status/980625867767468033?ref_src=twsrc%5Etfw">April 2, 2018</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"><\/script>',
-                        googleNewsEmbedLink: 'https://news.google.com/news/story/dfYDMDGAO8TkguMO_cX1MJo5EAKCM?ned=us&hl=en&gl=US',
-                        youtubeEmbedLink: '<iframe width="560" height="315" src="https://www.youtube.com/embed/2hJejg-Rchs?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'
-                    },
-                    {
-                        trendName: 'NCAA Basketball',
-                        tweetCount: 100,
-                        tweetEmbedLink: '<a class="twitter-timeline"  href="https://twitter.com/search?q=ncaa%20basketball" data-widget-id="980674435832311808">Tweets about ncaa basketball</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?\'http\':\'https\';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");<\/script>',
-                        googleNewsEmbedLink: 'https://news.google.com/news/search/section/q/ncaa%20basketball/ncaa%20basketball?hl=en&gl=US&ned=us',
-                        youtubeEmbedLink: '<iframe width="560" height="315" src="https://www.youtube.com/embed/50b3VgbsVpo?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'
-                    }
-                ]
-            }
-        })
-      // https://forum.vuejs.org/t/list-rendering-links/2830
-      // https://vuejs.org/v2/api/#v-html
-    </script>
-
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.0"></script>
+    <script src="render.js"></script>
 </body>
 
 </html>

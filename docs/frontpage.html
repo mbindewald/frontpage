@@ -192,7 +192,7 @@
 <body>
   <div id="app" class="search-bar">
       <div class="search-input">
-          <form action ="index.php" method="get">
+          <form action ="https://mbindewald.github.io/frontpage/index.php" method="get">
               <div class="input-group">
                   <input name="userInput" type="text" id="userInput" class="form-control search-box" placeholder="Search">
                   <button class="btn btn-primary btn-sm search-button" type="submit">Submit</button>
